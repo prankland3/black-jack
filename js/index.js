@@ -1,10 +1,12 @@
 
     let firstCard = 10
     let secondCard = 7
-    let sum = firstCard + secondCard +4
+    let sum = firstCard + secondCard
     let hasBlackJack = undefined
     let isAlive = undefined
     let message = ""
+
+    let message_el = document.getElementById("message-el")
 
 function startGame() {
  if (sum <= 20){
@@ -23,5 +25,6 @@ function startGame() {
 
 //cash out
 
-console.log(message)
+message_el.textContent = message
+console.log("code runs normal you don't need to look at here ;)")
 }
