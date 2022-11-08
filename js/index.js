@@ -37,13 +37,7 @@ function startGame(){
 }
 
 function renderGame() {
-    sum_el.textContent = "sum: " + sum
     
-        card_el.textContent = "Cards: "
-
-    for (let i = 0; i < cards.length; i++) {
-        card_el.textContent += cards[i] + " | "
-    }
 
     //logic of the game
 
@@ -64,6 +58,21 @@ function renderGame() {
         togle_buttons()
     }
 
+    if(isAlive === false){
+        cards = []
+        console.log("cards")
+        card_el.textContent = "Cards: "
+        sum_el.textContent = "sum: "
+        massage = "pls start a new game"
+    }else{
+    sum_el.textContent = "sum: " + sum
+    
+        card_el.textContent = "Cards: "
+
+    for (let i = 0; i < cards.length; i++) {
+        card_el.textContent += cards[i] + " | "
+    }
+}
 //cash out
 
 message_el.textContent = message
@@ -89,27 +98,19 @@ let random_card = Math.floor( Math.random() * 13)+1
  
 
 function newGame() {
-    if(isAlive === false){
-        cards = []
-        card_el.textContent = "Cards: "
-        sum_el.textContent = "sum: "
-        massage = "pls start a new game"
-    }else{
+    
     console.log("Drawing a new card from the deck!")
     let card = get_random_card()
     sum += card
     cards.push(card)
     renderGame()
-    }
    console.log("new Game")
-   console.log(cards)
    message_el.textContent = message
 }
 
 function togle_buttons(){
 
  if(isAlive === false){
-
     start_game.style.visibility = "visible"
     new_game.style.visibility  = "hidden"
 
