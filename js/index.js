@@ -74,7 +74,6 @@ function renderGame() {
         card_el.textContent += cards[i] + " | "
     }
 }
-//cash out
 
 message_el.textContent = message
 console.log("code runs normal you don't need to look at here ;)")
