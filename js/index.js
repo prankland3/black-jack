@@ -1,18 +1,13 @@
 
-    let firstCard = 10
-    let secondCard = 7
+    
+    let cards = [] //array
 
-    let cards = [
-        firstCard, 
-        secondCard
-    ] //array
-
-    let sum = firstCard + secondCard +4
+    let sum = 0
 
     // difine the chack variables
 
     let hasBlackJack = undefined
-    let isAlive = undefined
+    let isAlive = false
 
     let message = ""
 
@@ -21,20 +16,33 @@
     let message_el = document.getElementById("message-el")
     let sum_el = document.getElementById("sum-el")
     //let card_el = document.getElementById("card-el")
-    let card_el = document.querySelector("#card-el")
+    let card_el = document.querySelector("#card-el")    
+    let new_game = document.getElementById("new-btn")
+    let start_game = document.getElementById("start-btn")
+    togle_buttons()
 
 function startGame(){
+    //togle_buttons()
+    let first_card = get_random_card()
+    let seccond_card = get_random_card()
+
+    cards.push(first_card)
+    cards.push(seccond_card)
+
+    sum = first_card + seccond_card
+    isAlive = true
+
     console.log("start Game")
      renderGame()
 }
 
 function renderGame() {
     sum_el.textContent = "sum: " + sum
-    let card_el = document.getElementById("card-el")
+    
         card_el.textContent = "Cards: "
 
     for (let i = 0; i < cards.length; i++) {
-        card_el.textContent += cards[i] + " "
+        card_el.textContent += cards[i] + " | "
     }
 
     //logic of the game
@@ -43,14 +51,17 @@ function renderGame() {
         message = "Do you want to draw a new card?"
         hasBlackJack = false 
         isAlive = true
+        togle_buttons()
     }else if (sum ===21){
         message ="You've got Blackjack!"
         hasBlackJack = true
         isAlive = true
+        togle_buttons()
     }else{
         message = "You're out of the game!"
         hasBlackJack = false 
         isAlive = false
+        togle_buttons()
     }
 
 //cash out
@@ -59,20 +70,51 @@ message_el.textContent = message
 console.log("code runs normal you don't need to look at here ;)")
 }
 
+function get_random_card() {
+
+let random_card = Math.floor( Math.random() * 13)+1
+
+ if(random_card === 1){
+    console.log(random_card)
+    return  11
+ }else if (random_card === 11 || random_card === 12 || random_card === 13){
+    console.log(random_card)
+    return 10
+ }else{
+    console.log(random_card)
+    return random_card
+ }
+
+}
+ 
 
 function newGame() {
+    if(isAlive === false){
+        cards = []
+        card_el.textContent = "Cards: "
+        sum_el.textContent = "sum: "
+        massage = "pls start a new game"
+    }else{
     console.log("Drawing a new card from the deck!")
-    let card = 2
-
+    let card = get_random_card()
     sum += card
     cards.push(card)
-   
-
-    
-        renderGame()
-
-
+    renderGame()
+    }
    console.log("new Game")
    console.log(cards)
    message_el.textContent = message
+}
+
+function togle_buttons(){
+
+ if(isAlive === false){
+
+    start_game.style.visibility = "visible"
+    new_game.style.visibility  = "hidden"
+
+ }else{
+    start_game.style.visibility = "hidden"
+    new_game.style.visibility  = "visible"
+ }
 }
