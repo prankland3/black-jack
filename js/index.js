@@ -13,7 +13,7 @@
 
     let hasBlackJack = undefined
     let isAlive = undefined
-    let isOut = false
+
     let message = ""
 
    // get the ellements
@@ -29,10 +29,13 @@ function startGame(){
 }
 
 function renderGame() {
-
     sum_el.textContent = "sum: " + sum
     let card_el = document.getElementById("card-el")
-    card_el.textContent = "Cards: " + cards[0] + " " + cards[1] 
+        card_el.textContent = "Cards: "
+
+    for (let i = 0; i < cards.length; i++) {
+        card_el.textContent += cards[i] + " "
+    }
 
     //logic of the game
 
@@ -46,7 +49,6 @@ function renderGame() {
         isAlive = true
     }else{
         message = "You're out of the game!"
-        isOut = true
         hasBlackJack = false 
         isAlive = false
     }
@@ -66,12 +68,9 @@ function newGame() {
     cards.push(card)
    
 
-    if(isOut === false ){
+    
         renderGame()
-        sum = 0
-    } else{
-        message = "pls play a new round"
-    }
+
 
    console.log("new Game")
    console.log(cards)
