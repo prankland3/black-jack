@@ -1,6 +1,6 @@
 
     
-    let cards = [] //array
+    let cards = [] 
 
     let sum = 0
 
@@ -60,6 +60,7 @@ function renderGame() {
 
     if(isAlive === false){
         cards = []
+        sum = 0
         console.log("cards")
         card_el.textContent = "Cards: "
         sum_el.textContent = "sum: "
