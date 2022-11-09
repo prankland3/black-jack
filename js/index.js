@@ -59,12 +59,20 @@ function renderGame() {
     }
 
     if(isAlive === false){
-        cards = []
+        sum_el.textContent = "sum: " + sum
+
+            
+        card_el.textContent = "Cards: "
+
+    for (let i = 0; i < cards.length; i++) {
+        card_el.textContent += cards[i] + " | "
+    }
+
         sum = 0
         console.log("cards")
-        card_el.textContent = "Cards: "
-        sum_el.textContent = "sum: "
         massage = "pls start a new game"
+        message_el.textContent = message
+        cards = []
     }else{
     sum_el.textContent = "sum: " + sum
     
