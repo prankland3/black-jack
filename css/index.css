@@ -5,9 +5,10 @@ body {
     text-align: center;
     color: #fff;
     font-weight: bold;
-    font-size: 160%;
+    font-size: 200%;
     height: fit-content;
 }
+
 
 h1 {
     color: goldenrod;
@@ -33,3 +34,9 @@ button{
 button:hover {
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
   }
+  @media screen and (max-width: 1000px) {
+    body {
+       font-size: 160%;
+    }
+ }
+
