@@ -119,11 +119,11 @@ function newGame() {
 function togle_buttons(){
 
  if(isAlive === false){
-    start_game.style.visibility = "visible"
-    new_game.style.visibility  = "hidden"
+    start_game.style.display = "block"
+    new_game.style.display = "none"
 
  }else{
-    start_game.style.visibility = "hidden"
-    new_game.style.visibility  = "visible"
+    start_game.style.display = "none"
+    new_game.style.display  = "block"
  }
 }
